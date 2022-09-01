@@ -68,7 +68,12 @@ def starting_whylogs():
     """
     k = keys_apis.Keys()
     k.obtain_whylogs_key()
-    os.environ["WHYLABS_API_KEY"] = k.whylog_key
+    try:
+        os.environ["WHYLABS_API_KEY"] = k.whylog_key
+    except Exception as e:
+        print("WHYLABS_API_KEY not found" + str(e))
+        os.environ["WHYLABS_API_KEY"] = os.environ["WHYLOGS_ACCOUNT_KEY"]
+        raise
     os.environ["WHYLABS_DEFAULT_ORG_ID"] = "org-tgNtgy"
     # Adding the WhyLabs Writer to utilize WhyLabs platform
     writer = WhyLabsWriter("", formats=[])

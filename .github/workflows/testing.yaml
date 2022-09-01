@@ -1,0 +1,21 @@
+name: Testing API
+on: [push, pull_request]
+jobs:
+  testing-api:
+    runs-on: ubuntu-latest
+    env:
+      WHYLOGS_ACCOUNT_KEY: ${{ secrets.WHYLOGS_ACCOUNT_KEY }}
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+      - name: Creating and activating virtualenv
+        run: |
+          pip3 install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+      - name: Installing dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Testing training
+        run: |
+          pytest tests.py
