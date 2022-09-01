@@ -4,4 +4,5 @@ seaborn
 matplotlib
 sklearn
 mlflow
-prefect
+prefect==2.0.4
+pytest
