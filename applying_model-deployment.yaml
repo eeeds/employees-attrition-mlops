@@ -1,0 +1,35 @@
+###
+### A complete description of a Prefect Deployment for flow 'Applying ML Model'
+###
+name: Project-Deployment
+description: Apply model to data
+version: 7c47501fd48310a7558b3e4c388d09de
+tags:
+- MLOps
+parameters: {}
+schedule: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command:
+  - python
+  - -m
+  - prefect.engine
+  stream_output: true
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: Applying ML Model
+manifest_path: null
+storage: null
+path: C:\Users\User\Desktop\Github\MLOps-Camp\7-Project
+entrypoint: model.py:applying_model
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null

@@ -1,0 +1,13 @@
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 500
+disable = "R0914, W0611, W0613, W1514, W0201, R0903, C0412, C0103, W0621, R0913, W0612, C0303, W0105, C0114,C0116"
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+skip-string-normalization = true
+
+[tool.isort]
+multi_line_output = 3
+length_sort = true
+order_by_type = true
