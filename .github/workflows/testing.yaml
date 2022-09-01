@@ -18,4 +18,4 @@ jobs:
           pip install -r requirements.txt
       - name: Testing training
         run: |
-          pytest tests.py
+          pytest tests/test_model.py
