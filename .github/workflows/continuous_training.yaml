@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Train model
         env:
-          SERVICE_ACCOUNT_KEY: ${{ secrets.WHYLOGS_ACCOUNT_KEY }}}
+          WHYLOGS_ACCOUNT_KEY: ${{ secrets.WHYLOGS_ACCOUNT_KEY }}}
         run: |
           pip3 install virtualenv
           virtualenv venv
