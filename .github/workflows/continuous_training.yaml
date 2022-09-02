@@ -1,0 +1,39 @@
+name: Continuous Training
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why to run this?
+        required: false
+        default: running CT
+jobs:
+  continuous-training:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Train model
+        env:
+          SERVICE_ACCOUNT_KEY: ${{ secrets.WHYLOGS_ACCOUNT_KEY }}}
+        run: |
+          pip3 install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          python3 model.py
+          echo "Training Completed"
+      - name: Commit model changes
+        run: |
+          git config --local user.email "encinaesteban27@gmail.com"
+          git config --local user.name "github-actions[bot]"
+          git add models/logreg.pkl models/pipeline.bin
+          git commit -m "Updating model serialization"
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
