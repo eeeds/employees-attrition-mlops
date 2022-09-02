@@ -32,7 +32,7 @@ jobs:
         run: |
           git config --local user.email "encinaesteban27@gmail.com"
           git config --local user.name "github-actions[bot]"
-          git add models/logreg.pkl models/pipeline.bin
+          git add .
           git commit -m "Updating model serialization"
       - uses: ad-m/github-push-action@master
         with:
