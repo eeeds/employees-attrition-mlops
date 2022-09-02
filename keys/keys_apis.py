@@ -1,3 +1,4 @@
+import os
 import json
 
 
@@ -13,6 +14,10 @@ class Keys:
         """
         This function obtains the WhyLogs key.
         """
-        with open('whylog_token.json', 'r') as f:
-            token = json.load(f)['key']
-        self.whylog_key = token
+        try:
+            with open('whylog_token.json', 'r') as f:
+                token = json.load(f)['key']
+            self.whylog_key = token
+        except FileNotFoundError:
+            print('The file whylog_token.json was not found.')
+            self.whylog_key = os.environ('WHYLOGS_ACCOUNT_KEY')
