@@ -7,3 +7,4 @@ mlflow
 prefect==2.0.4
 pytest
 whylogs==0.7.9
+evidently==0.1.55.dev0
