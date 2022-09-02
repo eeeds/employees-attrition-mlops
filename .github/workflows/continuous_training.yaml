@@ -25,6 +25,7 @@ jobs:
           virtualenv venv
           source venv/bin/activate
           pip install -r requirements.txt
+          mlflow db upgrade sqlite:///mydb.sqlite
           python3 model.py
           echo "Training Completed"
       - name: Commit model changes
