@@ -68,6 +68,7 @@
   - [Create a sample config file with pre-commit](#create-a-sample-config-file-with-pre-commit)
   - [Create a yaml file with pre-commit settings](#create-a-yaml-file-with-pre-commit-settings)
   - [Add pre-commit to the .git folder](#add-pre-commit-to-the-git-folder)
+  - [For one of my commits, I've got the following result:](#for-one-of-my-commits-ive-got-the-following-result)
   - [You can see all the hooks that pre-commit can run at the following link:](#you-can-see-all-the-hooks-that-pre-commit-can-run-at-the-following-link)
   - [Isort pre-commit hook](#isort-pre-commit-hook)
   - [Black pre-commit hook](#black-pre-commit-hook)
@@ -436,6 +437,8 @@ Type the following command to add pre-commit to the .git folder:
 ```
 pre-commit install
 ```
+## For one of my commits, I've got the following result:
+![Example](images/pre-commit-example2.png)
 ## You can see all the hooks that pre-commit can run at the following link:
 [https://pre-commit.com/hooks.html](https://pre-commit.com/hooks.html)
 ## Isort pre-commit hook

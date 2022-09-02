@@ -1,4 +1,4 @@
-name: Testing API
+name: Testing data
 on: [push, pull_request]
 jobs:
   testing-api:
