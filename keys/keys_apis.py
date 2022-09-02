@@ -20,4 +20,4 @@ class Keys:
             self.whylog_key = token
         except FileNotFoundError:
             print('The file whylog_token.json was not found.')
-            self.whylog_key = os.environ('WHYLOGS_ACCOUNT_KEY')
+            self.whylog_key = os.environ["WHYLOGS_ACCOUNT_KEY"]
