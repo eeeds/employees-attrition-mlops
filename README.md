@@ -86,6 +86,10 @@
   - [Model that we'll use](#model-that-well-use)
   - [Load the model](#load-the-model)
   - [Run the app](#run-the-app)
+- [CI/CD](#cicd)
+  - [Github actions](#github-actions)
+  - [Testing workflow](#testing-workflow)
+  - [Continuous training workflow](#continuous-training-workflow)
 
 # Problem Explanation
 Imagine that you're working on a company that want to predict if an employee is leaving or not the company based on several factors like age, salary, etc.
@@ -98,6 +102,7 @@ The main focus of this project is to build a model to predict it, register it in
 If you want to reproduce the results of this project, run the following commands:
 
 ```
+Add a whylog_token.json to the root of the project with your token
 pip install -r requirements.txt
 python model.py
 make up
@@ -567,3 +572,17 @@ Run the app with the following command:
 streamlit run streamlit/streamlit_app.py
 ```
 where `streamlit_app.py` is the name of the file.
+
+# CI/CD
+## Github actions
+Github actions is a service that allows us to run our code in a virtual machine. We can use this service to run our code when we push our code to Github. We can also use this service to run our code when we create a pull request.
+## [Testing workflow](.github/workflows/testing.yaml)
+I've created a workflow to test the code. Basically, this workflow will run the following commands:
+1. Install the requirements.
+2. Run the tests.
+## [Continuous training workflow](.github/workflows/continuous_training.yaml)
+This workflow will run the following commands:
+1. Install the requirements.
+2. Run the model
+3. Push the new model to the repository.
+4. This workflow will run every day (6 hours after the last run).
