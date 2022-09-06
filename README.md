@@ -13,6 +13,7 @@
 - [Problem Explanation](#problem-explanation)
   - [Diagram](#diagram)
   - [Reproducibility](#reproducibility)
+  - [If you only want to see the final apps](#if-you-only-want-to-see-the-final-apps)
 - [Step by Step](#step-by-step)
 - [Enviroment](#enviroment)
   - [Create a conda enviroment for the project with python=3.9](#create-a-conda-enviroment-for-the-project-with-python39)
@@ -105,6 +106,12 @@ If you want to reproduce the results of this project, run the following commands
 Add a whylog_token.json to the root of the project with your token
 pip install -r requirements.txt
 python model.py
+make build
+make up
+```
+## If you only want to see the final apps
+```
+make build
 make up
 ```
 # Step by Step
