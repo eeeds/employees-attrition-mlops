@@ -6,5 +6,5 @@ sklearn
 mlflow
 prefect==2.0.4
 pytest
-whylogs==1.1.14
+whylogs==0.7.9
 evidently==0.1.55.dev0
