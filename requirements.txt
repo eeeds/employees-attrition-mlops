@@ -4,7 +4,7 @@ seaborn
 matplotlib
 sklearn
 mlflow
-prefect==2.0.4
+prefect==2.7.3
 pytest
-whylogs==0.7.9
+whylogs==0.7.10
 evidently==0.1.55.dev0

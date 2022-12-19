@@ -20,7 +20,7 @@
   - [Active the enviroment](#active-the-enviroment)
   - [Install the dependencies](#install-the-dependencies)
 - [Model: Classification model that predict if an employee is leaving the company.](#model-classification-model-that-predict-if-an-employee-is-leaving-the-company)
-  - [Dataset: IBM HR Analytics Employee Attrition & Performance](#dataset-ibm-hr-analytics-employee-attrition--performance)
+  - [Dataset: IBM HR Analytics Employee Attrition \& Performance](#dataset-ibm-hr-analytics-employee-attrition--performance)
   - [Download dataset with the following command:](#download-dataset-with-the-following-command)
   - [Working on model.ipynb](#working-on-modelipynb)
     - [Install ipython kernel](#install-ipython-kernel)
@@ -29,7 +29,7 @@
 - [Orchestration of the project](#orchestration-of-the-project)
   - [Install prefect](#install-prefect)
   - [Authenticating with Prefect Cloud (Optional)](#authenticating-with-prefect-cloud-optional)
-  - [Start orion UI](#start-orion-ui)
+  - [Start UI](#start-ui)
 - [Deployment](#deployment)
   - [Build the deployment](#build-the-deployment)
   - [Apply the deployment](#apply-the-deployment)
@@ -118,15 +118,15 @@ make up
 Follow the steps below to reproduce the problem and build the model.
 # Enviroment
 ## Create a conda enviroment for the project with python=3.9
-```
+```sh
 conda create -n project_enviroment python=3.9
 ```
 ## Active the enviroment
-```
+```sh
 conda activate project_enviroment
 ```
 ## Install the dependencies
-```
+```sh
 pip install -r requirements.txt
 ```
 # Model: Classification model that predict if an employee is leaving the company.
@@ -146,14 +146,14 @@ conda install -n project_enviroment ipykernel --update-deps --force-reinstall
 
 Run the following command in your terminal to track the experiment in your local machine:
 
-```
+```sh
 mlflow ui --backend-store-uri sqlite:///mydb.sqlite
 ```
 That command create a database file called mydb.sqlite in the current directory that'll be used to store the experiment data.
 
 Add this code to your notebook to track the experiment in your local machine using a SQLite database:
 
-```
+```python
 import mlflow
 
 
@@ -162,12 +162,12 @@ mlflow.set_tracking_uri('sqlite:///mydb.sqlite')
 
 And start a run with:
 
-```
+```python
 mlflow.start_run()
 ```
 ## Model Register
 I'm using a sklearn library, mlflow provides a way to register the model with the following command:
-```
+```python
   #Model Register
   mlflow.sklearn.log_model(
         sk_model = logreg,
@@ -177,20 +177,18 @@ I'm using a sklearn library, mlflow provides a way to register the model with th
 ```
 ![Registered model](images/mlflow-registered-model.PNG)
 # Orchestration of the project
-I'm going to use [Prefect==2.0.4](https://prefect.io/) to orchestrate the project.
+I'm going to use [Prefect==2.7.3](https://prefect.io/) to orchestrate the project.
 ## Install prefect
-```
+```sh
 conda install prefect -c conda-forge
 ```
 ## Authenticating with Prefect Cloud (Optional)
-```
-prefect auth login --key <YOUR-KEY>
-```
-## Start orion UI
-```
-prefect orion start
+```sh
+prefect cloud login -k YOUR_KEY
 ```
 
+## Start UI
+>Go to [prefect-cloud-web](app.prefect.cloud)
 # Deployment
 See the options wit the following command:
 
@@ -198,11 +196,11 @@ See the options wit the following command:
  prefect deployment build --help
 ```
 ## Build the deployment
-```
+```sh
 prefect deployment build .\model.py:applying_model --name Project-Deployment --tag MLOps
 ```
 ## Apply the deployment
-```
+```sh
 prefect deployment apply applying_model-deployment.yaml
 ```
 ## Work queues and agents
